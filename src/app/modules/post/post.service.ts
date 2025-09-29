@@ -1,11 +1,11 @@
-import { Post } from "@prisma/client";
+import { approveStatus, Post } from "@prisma/client";
 import { prisma } from "../../share/prismaClient";
 import { fcm } from "../../utils/firebaseAdmin";
 
 const postCreateData = async (
   payload: Post,
   userId: string,
-  status: string
+  status: approveStatus
 ) => {
   const { description, location, image } = payload;
   const result = await prisma.post.create({

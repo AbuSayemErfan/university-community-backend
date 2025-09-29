@@ -19,6 +19,8 @@ const Registeruser = async (payload: user) => {
         data: {},
       };
     }
+     if (existinguser.role === "admin") { payload.studentId==""
+    }
     if (existinguser.studentId === payload.studentId) {
       return {
         success: false,
